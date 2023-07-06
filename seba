@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+
+std::string insertarCaracter(const std::string& cadena, char caracter, int intervalo) {
+    std::string nuevaCadena;
+
+    for (size_t i = 0; i < cadena.length(); i++) {
+        nuevaCadena += cadena[i];
+
+        // Insertar el carácter cada "intervalo" dígitos
+        if ((i + 1) % intervalo == 0 && i != cadena.length() - 1) {
+            nuevaCadena += caracter;
+        }
+    }
+
+    return nuevaCadena;
+}
+
+int main() {
+    std::string cadena;
+    char caracter;
+    int intervalo;
+
+    std::cout << "Ingrese una cadena: ";
+    std::cin >> cadena;
+
+    std::cout << "Ingrese un carácter: ";
+    std::cin >> caracter;
+
+    std::cout << "Ingrese el intervalo: ";
+    std::cin >> intervalo;
+
+    std::string nuevaCadena = insertarCaracter(cadena, caracter, intervalo);
+
+    std::cout << "Cadena resultante: " << nuevaCadena << std::endl;
+
+    return 0;
+}
